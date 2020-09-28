@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Electron memory issue demo</title>
+  </head>
+  <body>
+    <h1>Electron memory issue demo</h1>
+    <button onclick="saveLog()">save log</button>
+    <div id="messages"></div>
+    <script>
+      const { ipcRenderer } = require('electron');
+      ipcRenderer.on('message', function(event, text) {
+        var container = document.getElementById('messages');
+        var message = document.createElement('div');
+        message.innerHTML = text;
+        container.appendChild(message);
+      });
+
+      function saveLog() {
+        ipcRenderer.send('save-log');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+- Electron Memory issue on Window
+- electron bug ticket: https://github.com/electron/electron/issues/23783

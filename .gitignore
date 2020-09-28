@@ -1,0 +1,7 @@
+node_modules
+dist/
+yarn.lock
+token
+.DS_Store
+.vscode/
+release/

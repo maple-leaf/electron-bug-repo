@@ -1,0 +1,19 @@
+#!/bin/sh
+echo "Executing postinstaller script for custom installer"
+
+pathToScript=$0
+pathToPackage=$1
+targetLocation=$2
+targetVolume=$3
+
+baseName=$(basename "$pathToPackage" | cut -d '.' -f 1)
+appName="$baseName".app
+appPath=$targetLocation/"$appName"
+
+if [ -d "$appPath" ]
+then
+sudo chown -R $USER: "$appPath"
+open -a "$appPath" --args "$pathToPackage"
+fi
+
+exit 0
